@@ -112,7 +112,7 @@ class nginx::config(
   if (!is_integer($worker_connections)) {
     fail('$worker_connections must be an integer.')
   }
-  if (!is_integer($worker_priority)) {
+  if (!is_numeric($worker_priority)) {
     fail('$worker_priority must be an integer.')
   }
   if (!is_integer($worker_rlimit_nofile)) {
