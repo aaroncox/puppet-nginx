@@ -5,6 +5,9 @@ worker_processes <%= @worker_processes %>;
 <% if @worker_rlimit_nofile -%>
 worker_rlimit_nofile <%= @worker_rlimit_nofile %>;
 <% end -%>
+<% if @worker_priority -%>
+worker_priority <%= @worker_priority %>;
+<% end -%>
 
 <% if @pid -%>
 pid        <%= @pid %>;

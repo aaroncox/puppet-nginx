@@ -100,6 +100,7 @@ class nginx::config(
   $types_hash_max_size            = '1024',
   $worker_connections             = '1024',
   $worker_processes               = '1',
+  $worker_priority                = undef,
   $worker_rlimit_nofile           = '1024',
   ### END Nginx Configuration ###
 ) inherits ::nginx::params {
@@ -110,6 +111,9 @@ class nginx::config(
   }
   if (!is_integer($worker_connections)) {
     fail('$worker_connections must be an integer.')
+  }
+  if (!is_integer($worker_priority)) {
+    fail('$worker_priority must be an integer.')
   }
   if (!is_integer($worker_rlimit_nofile)) {
     fail('$worker_rlimit_nofile must be an integer.')

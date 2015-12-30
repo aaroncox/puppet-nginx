@@ -68,6 +68,7 @@ class nginx (
   $types_hash_max_size            = undef,
   $worker_connections             = undef,
   $worker_processes               = undef,
+  $worker_priority                = undef,
   $worker_rlimit_nofile           = undef,
   ### END Nginx Configuration
 
@@ -196,6 +197,7 @@ class nginx (
         $vhost_purge or
         $worker_connections or
         $worker_processes or
+        $worker_priority or
         $worker_rlimit_nofile or
         $global_owner or
         $global_group or
@@ -277,6 +279,7 @@ class nginx (
       vhost_purge                    => $vhost_purge,
       worker_connections             => $worker_connections,
       worker_processes               => $worker_processes,
+      worker_priority                => $worker_priority,
       worker_rlimit_nofile           => $worker_rlimit_nofile,
       global_owner                   => $global_owner,
       global_group                   => $global_group,
